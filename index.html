@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>飯野 海斗 | AI活用支援 / IT技術コンサルティング / 開発支援</title>
+  <meta name="description" content="飯野海斗のポートフォリオ。AI活用支援、IT技術コンサルティング、業務効率化ツール・アプリケーション開発。">
+  <style>
+    :root{
+      --bg:#f6f4ef;
+      --text:#111111;
+      --muted:#5f5a52;
+      --line:#d9d2c6;
+      --panel:#fbfaf7;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 28px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(246,244,239,.82);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(17,17,17,.06);
+    }
+
+    .nav{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .menu{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      font-size:14px;
+      color:var(--muted);
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .menu a:hover{color:var(--text)}
+
+    .hero{
+      padding:96px 0 76px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(44px, 8vw, 104px);
+      line-height:.94;
+      letter-spacing:-.055em;
+      max-width:11ch;
+      font-weight:800;
+    }
+
+    .lead{
+      margin:28px 0 0;
+      max-width:760px;
+      font-size:clamp(17px, 2vw, 22px);
+      color:var(--muted);
+    }
+
+    .hero-meta{
+      margin-top:44px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px 28px;
+      max-width:920px;
+      padding-top:24px;
+      border-top:1px solid var(--line);
+    }
+
+    .meta-label{
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .meta-value{
+      font-size:16px;
+    }
+
+    section{
+      padding:76px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:24px;
+      margin-bottom:30px;
+    }
+
+    .section-kicker{
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .section-title{
+      font-size:clamp(28px,4vw,44px);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      margin:0;
+    }
+
+    .section-desc{
+      margin:10px 0 0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.42);
+      border:1px solid rgba(17,17,17,.08);
+      padding:22px;
+      min-height:250px;
+    }
+
+    .card-index{
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:28px;
+      letter-spacing:.08em;
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      font-size:24px;
+      line-height:1.02;
+      letter-spacing:-.03em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .timeline{
+      display:grid;
+      gap:0;
+      border-top:1px solid var(--line);
+    }
+
+    .timeline-item{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:20px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .timeline-year{
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding-top:4px;
+    }
+
+    .timeline-body h3{
+      margin:0 0 8px;
+      font-size:26px;
+      line-height:1.04;
+      letter-spacing:-.03em;
+    }
+
+    .timeline-body p{
+      margin:0;
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .list-box{
+      background:rgba(255,255,255,.42);
+      border:1px solid rgba(17,17,17,.08);
+      padding:22px;
+    }
+
+    .list-box h3{
+      margin:0 0 14px;
+      font-size:22px;
+      line-height:1.04;
+      letter-spacing:-.03em;
+    }
+
+    .plain-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .plain-list li{
+      margin:8px 0;
+    }
+
+    .about-copy{
+      max-width:860px;
+      font-size:clamp(20px,2.8vw,34px);
+      line-height:1.18;
+      letter-spacing:-.03em;
+    }
+
+    .contact-box{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+    }
+
+    .contact-copy{
+      max-width:700px;
+    }
+
+    .contact-copy strong{
+      display:block;
+      font-size:clamp(24px, 3vw, 36px);
+      line-height:1.06;
+      letter-spacing:-.04em;
+      font-weight:700;
+    }
+
+    .contact-copy p{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:18px;
+      max-width:680px;
+    }
+
+    .mail{
+      display:inline-block;
+      font-size:clamp(20px,2.4vw,34px);
+      line-height:1;
+      letter-spacing:-.03em;
+      border-bottom:1px solid var(--text);
+      padding-bottom:6px;
+      white-space:nowrap;
+    }
+
+    footer{
+      padding:24px 0 40px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media (max-width:980px){
+      .hero-meta{grid-template-columns:1fr 1fr}
+      .grid{grid-template-columns:1fr}
+      .list{grid-template-columns:1fr}
+    }
+
+    @media (max-width:900px){
+      .section-head{grid-template-columns:1fr;gap:10px}
+      .timeline-item{grid-template-columns:1fr}
+      .contact-box{display:block}
+      .mail{margin-top:24px}
+      .hero-meta{grid-template-columns:1fr}
+    }
+
+    @media (max-width:640px){
+      .wrap{padding:0 18px}
+      .nav{height:64px}
+      .menu{gap:14px;font-size:13px}
+      .hero{padding:56px 0 48px}
+      section{padding:52px 0}
+      h1{max-width:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a href="#" class="brand">Kaito Iino</a>
+        <nav class="menu">
+          <a href="#services">提供内容</a>
+          <a href="#career">経歴</a>
+          <a href="#strength">強み</a>
+          <a href="#contact">問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">AI Enablement / IT Consulting / Software Development</div>
+        <h1>業務課題を整理し、AIと実装で前に進める。</h1>
+        <p class="lead">
+          AI活用支援、IT技術コンサルティング、業務効率化ツール・アプリケーション開発。
+          上流から下流まで一貫して対応し、課題整理から改善提案、実装、運用の土台づくりまで担います。
+        </p>
+
+        <div class="hero-meta">
+          <div>
+            <div class="meta-label">Current</div>
+            <div class="meta-value">個人事業主 / 2026年4月開業予定</div>
+          </div>
+          <div>
+            <div class="meta-label">Background</div>
+            <div class="meta-value">PCI Solutions 3年 / ALTEN Japan 4年</div>
+          </div>
+          <div>
+            <div class="meta-label">Focus</div>
+            <div class="meta-value">生成AI活用・業務改善・技術支援</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Services</div>
+          <div>
+            <h2 class="section-title">提供内容</h2>
+            <p class="section-desc">
+              創業計画書に基づく主な提供サービスです。法人の業務効率化、デジタル活用、技術支援を主対象としています。
+            </p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-index">01</div>
+            <h3>AI活用支援</h3>
+            <p>
+              業務効率化やツール活用支援を中心に、現場で使える形に落とし込むAI活用を支援します。
+              活用テーマの整理、導入設計、運用面の検討まで対応します。
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-index">02</div>
+            <h3>IT技術コンサルティング</h3>
+            <p>
+              業務課題の把握から改善提案、技術提案までを一貫して支援します。
+              単なる助言に留まらず、実行可能な設計に落とし込むことを重視しています。
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-index">03</div>
+            <h3>業務効率化ツール / アプリ開発</h3>
+            <p>
+              簡易ツールや社内向けアプリケーションの開発を通じて、業務の再現性と効率を高めます。
+              現場運用を前提とした開発・改善が中心です。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Career</div>
+          <div>
+            <h2 class="section-title">経歴</h2>
+            <p class="section-desc">
+              システム開発・運用保守、ITコンサルティング、生成AI活用推進まで、技術と業務の両面を経験しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2019.04 — 2022.03</div>
+            <div class="timeline-body">
+              <h3>PCI Solutions, Inc.</h3>
+              <p>
+                ソフトウェア開発業に3年間従事。システム開発および運用保守のチームリーダーを担当し、
+                開発だけでなく、運用面・継続性・現場調整も含めて経験しました。
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2022.04 — 2026.03</div>
+            <div class="timeline-body">
+              <h3>ALTEN Japan Co., Ltd.</h3>
+              <p>
+                ソフトウェア開発業 / ITコンサルティング領域に4年間従事。
+                生成AI活用プロジェクトリーダーを務め、業務理解と技術支援を接続しながら、
+                現場で機能する改善と推進を担いました。
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2026.04 —</div>
+            <div class="timeline-body">
+              <h3>個人事業主として開業</h3>
+              <p>
+                技術力を直接市場へ発揮し、顧客課題の解決に直結する形で価値提供を行うため独立。
+                将来的な法人化も視野に入れ、事業基盤の構築を進めています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="strength">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Strength</div>
+          <div>
+            <h2 class="section-title">強み / 事業の方向性</h2>
+            <p class="section-desc">
+              創業計画書に記載した強みと販売方針を、そのまま読み手に伝わる形に整理しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="list-box">
+            <h3>強み</h3>
+            <ul class="plain-list">
+              <li>上流から下流まで一貫して経験していること</li>
+              <li>業務課題の把握から改善提案、ツール開発まで幅広く対応できること</li>
+              <li>関係者調整や業務推進を円滑に進められること</li>
+              <li>AI活用支援と業務改善を実行までつなげられること</li>
+            </ul>
+          </div>
+
+          <div class="list-box">
+            <h3>対象 / 方針</h3>
+            <ul class="plain-list">
+              <li>主な対象は、業務効率化やデジタル活用を求める法人</li>
+              <li>既存取引先を中心に、継続取引と紹介を基盤として案件を獲得</li>
+              <li>必要に応じてSNS等の情報発信も活用し、顧客接点を拡大</li>
+              <li>業務理解と技術支援を一貫して提供するポジションを強みにする</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Qualification</div>
+          <div>
+            <h2 class="section-title">資格</h2>
+            <p class="section-desc">
+              実務中心の経歴を軸にしつつ、生成AI・クラウド・英語基礎の資格も保有しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="list-box">
+            <h3>保有資格</h3>
+            <ul class="plain-list">
+              <li>GUGA Generative AI Passport（2025年10月取得）</li>
+              <li>AWS Partners: Accreditation</li>
+              <li>TOEIC Listening &amp; Reading Test 510点</li>
+            </ul>
+          </div>
+
+          <div class="list-box">
+            <h3>補足</h3>
+            <ul class="plain-list">
+              <li>許認可：特になし</li>
+              <li>知的財産権等：特になし</li>
+              <li>過去の事業経験：事業経営経験なし</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">About</div>
+          <div>
+            <h2 class="section-title">自己紹介</h2>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          これまで業務を通じて、企業の課題整理や改善に向けた技術支援に携わってきました。
+          独立後は、企業のIT活用や業務効率化を丁寧に支援し、継続的に価値を提供できる事業者を目指しています。
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Contact</div>
+          <div>
+            <h2 class="section-title">問い合わせ</h2>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-copy">
+            <strong>案件相談、技術支援、AI活用に関するご相談はこちらから。</strong>
+            <p>
+              ご相談内容、目的、現在の課題、想定時期を簡単に添えていただけるとスムーズです。
+            </p>
+          </div>
+          <a class="mail" href="mailto:ii.kt@outlook.com">ii.kt@outlook.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Kaito Iino</div>
+  </footer>
+</body>
+</html>
