@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>飯野 海斗 | AI活用支援 / IT技術コンサルティング / 開発支援</title>
-  <meta name="description" content="飯野海斗のポートフォリオ。AI活用支援、IT技術コンサルティング、業務効率化ツール・アプリケーション開発。">
+  <title>NAME | AI活用支援 / IT技術コンサルティング / 開発支援</title>
+  <meta name="description" content="NAMEのポートフォリオ。AI活用支援、IT技術コンサルティング、業務効率化ツール・アプリケーション開発。">
   <style>
     :root{
       --bg:#f6f4ef;
@@ -13,6 +13,8 @@
       --line:#d9d2c6;
       --panel:#fbfaf7;
       --max:1120px;
+      --ease:cubic-bezier(.22,1,.36,1);
+      --header-bg:rgba(246,244,239,.82);
     }
 
     *{box-sizing:border-box}
@@ -26,6 +28,7 @@
       line-height:1.5;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
 
     a{color:inherit;text-decoration:none}
@@ -37,13 +40,23 @@
       padding:0 28px;
     }
 
+    /* ---------- Header ---------- */
     header{
       position:sticky;
       top:0;
-      z-index:20;
-      background:rgba(246,244,239,.82);
-      backdrop-filter: blur(12px);
+      z-index:50;
+      background:var(--header-bg);
+      backdrop-filter: blur(14px);
       border-bottom:1px solid rgba(17,17,17,.06);
+      transition:
+        background .35s var(--ease),
+        border-color .35s var(--ease),
+        box-shadow .35s var(--ease);
+    }
+
+    header.is-scrolled{
+      background:rgba(246,244,239,.92);
+      box-shadow:0 10px 30px rgba(17,17,17,.04);
     }
 
     .nav{
@@ -52,6 +65,11 @@
       align-items:center;
       justify-content:space-between;
       gap:20px;
+      transition:height .35s var(--ease);
+    }
+
+    header.is-scrolled .nav{
+      height:62px;
     }
 
     .brand{
@@ -60,7 +78,21 @@
       letter-spacing:.12em;
       text-transform:uppercase;
       white-space:nowrap;
+      position:relative;
     }
+
+    .brand::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:0;
+      height:1px;
+      background:var(--text);
+      transition:width .4s var(--ease);
+    }
+
+    .brand:hover::after{ width:100%; }
 
     .menu{
       display:flex;
@@ -72,11 +104,71 @@
       justify-content:flex-end;
     }
 
-    .menu a:hover{color:var(--text)}
+    .menu a{
+      position:relative;
+      transition:color .25s ease, transform .25s ease;
+    }
 
+    .menu a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:100%;
+      height:1px;
+      background:var(--text);
+      transform:scaleX(0);
+      transform-origin:right;
+      transition:transform .35s var(--ease);
+    }
+
+    .menu a:hover{
+      color:var(--text);
+      transform:translateY(-1px);
+    }
+
+    .menu a:hover::after{
+      transform:scaleX(1);
+      transform-origin:left;
+    }
+
+    /* ---------- Hero ---------- */
     .hero{
-      padding:96px 0 76px;
+      position:relative;
+      padding:104px 0 84px;
       border-bottom:1px solid var(--line);
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.55), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(17,17,17,.03), transparent 30%);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:auto -10% -140px auto;
+      width:460px;
+      height:460px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(17,17,17,.055), transparent 65%);
+      filter:blur(18px);
+      pointer-events:none;
+      transform:translate3d(0,0,0);
+      animation:floatOrb 8s ease-in-out infinite;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      top:-100px;
+      left:-120px;
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(17,17,17,.03), transparent 68%);
+      filter:blur(10px);
+      pointer-events:none;
+      animation:floatOrb2 11s ease-in-out infinite;
     }
 
     .eyebrow{
@@ -86,6 +178,9 @@
       text-transform:uppercase;
       color:var(--muted);
       margin-bottom:18px;
+      opacity:0;
+      transform:translateY(18px);
+      animation:heroFadeUp .8s .08s var(--ease) forwards;
     }
 
     h1{
@@ -95,6 +190,9 @@
       letter-spacing:-.055em;
       max-width:11ch;
       font-weight:800;
+      opacity:0;
+      transform:translateY(24px);
+      animation:heroFadeUp .95s .16s var(--ease) forwards;
     }
 
     .lead{
@@ -102,6 +200,9 @@
       max-width:760px;
       font-size:clamp(17px, 2vw, 22px);
       color:var(--muted);
+      opacity:0;
+      transform:translateY(18px);
+      animation:heroFadeUp .95s .28s var(--ease) forwards;
     }
 
     .hero-meta{
@@ -112,6 +213,17 @@
       max-width:920px;
       padding-top:24px;
       border-top:1px solid var(--line);
+      opacity:0;
+      transform:translateY(18px);
+      animation:heroFadeUp .95s .42s var(--ease) forwards;
+    }
+
+    .meta-item{
+      transition:transform .35s var(--ease), opacity .35s var(--ease);
+    }
+
+    .meta-item:hover{
+      transform:translateY(-2px);
     }
 
     .meta-label{
@@ -127,6 +239,7 @@
       font-size:16px;
     }
 
+    /* ---------- Sections ---------- */
     section{
       padding:76px 0;
       border-bottom:1px solid var(--line);
@@ -161,6 +274,7 @@
       font-size:16px;
     }
 
+    /* ---------- Cards ---------- */
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -172,6 +286,19 @@
       border:1px solid rgba(17,17,17,.08);
       padding:22px;
       min-height:250px;
+      transition:
+        transform .45s var(--ease),
+        border-color .35s var(--ease),
+        box-shadow .45s var(--ease),
+        background .35s var(--ease);
+      will-change:transform;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(17,17,17,.16);
+      box-shadow:0 18px 40px rgba(17,17,17,.06);
+      background:rgba(255,255,255,.55);
     }
 
     .card-index{
@@ -194,6 +321,7 @@
       font-size:15px;
     }
 
+    /* ---------- Timeline ---------- */
     .timeline{
       display:grid;
       gap:0;
@@ -206,6 +334,12 @@
       gap:20px;
       padding:22px 0;
       border-bottom:1px solid var(--line);
+      transition:background .3s ease, transform .35s var(--ease);
+    }
+
+    .timeline-item:hover{
+      background:rgba(255,255,255,.22);
+      transform:translateX(4px);
     }
 
     .timeline-year{
@@ -229,6 +363,7 @@
       max-width:760px;
     }
 
+    /* ---------- Lists ---------- */
     .list{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -239,6 +374,16 @@
       background:rgba(255,255,255,.42);
       border:1px solid rgba(17,17,17,.08);
       padding:22px;
+      transition:
+        transform .4s var(--ease),
+        box-shadow .4s var(--ease),
+        border-color .3s ease;
+    }
+
+    .list-box:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(17,17,17,.05);
+      border-color:rgba(17,17,17,.14);
     }
 
     .list-box h3{
@@ -265,6 +410,7 @@
       letter-spacing:-.03em;
     }
 
+    /* ---------- Contact ---------- */
     .contact-box{
       display:flex;
       justify-content:space-between;
@@ -299,6 +445,15 @@
       border-bottom:1px solid var(--text);
       padding-bottom:6px;
       white-space:nowrap;
+      transition:
+        transform .35s var(--ease),
+        opacity .25s ease,
+        letter-spacing .35s var(--ease);
+    }
+
+    .mail:hover{
+      transform:translateY(-2px);
+      letter-spacing:-.015em;
     }
 
     footer{
@@ -307,6 +462,58 @@
       color:var(--muted);
     }
 
+    /* ---------- Reveal Animations ---------- */
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:
+        opacity .9s var(--ease),
+        transform .9s var(--ease);
+      will-change:opacity, transform;
+    }
+
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .reveal-left{
+      opacity:0;
+      transform:translateX(-28px);
+      transition:
+        opacity .95s var(--ease),
+        transform .95s var(--ease);
+    }
+
+    .reveal-left.is-visible{
+      opacity:1;
+      transform:translateX(0);
+    }
+
+    .stagger-1{ transition-delay:.06s; }
+    .stagger-2{ transition-delay:.12s; }
+    .stagger-3{ transition-delay:.18s; }
+    .stagger-4{ transition-delay:.24s; }
+
+    /* ---------- Keyframes ---------- */
+    @keyframes heroFadeUp{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes floatOrb{
+      0%,100%{ transform:translate3d(0,0,0) scale(1); }
+      50%{ transform:translate3d(-12px,-20px,0) scale(1.04); }
+    }
+
+    @keyframes floatOrb2{
+      0%,100%{ transform:translate3d(0,0,0) scale(1); }
+      50%{ transform:translate3d(16px,14px,0) scale(1.05); }
+    }
+
+    /* ---------- Responsive ---------- */
     @media (max-width:980px){
       .hero-meta{grid-template-columns:1fr 1fr}
       .grid{grid-template-columns:1fr}
@@ -325,17 +532,31 @@
       .wrap{padding:0 18px}
       .nav{height:64px}
       .menu{gap:14px;font-size:13px}
+      header.is-scrolled .nav{height:58px}
       .hero{padding:56px 0 48px}
       section{padding:52px 0}
       h1{max-width:none}
     }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *, *::before, *::after{
+        animation:none !important;
+        transition:none !important;
+      }
+      .reveal, .reveal-left,
+      .eyebrow, h1, .lead, .hero-meta{
+        opacity:1 !important;
+        transform:none !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
+  <header id="siteHeader">
     <div class="wrap">
       <div class="nav">
-        <a href="#" class="brand">Kaito Iino</a>
+        <a href="#" class="brand">NAME</a>
         <nav class="menu">
           <a href="#services">提供内容</a>
           <a href="#career">経歴</a>
@@ -357,15 +578,15 @@
         </p>
 
         <div class="hero-meta">
-          <div>
+          <div class="meta-item">
             <div class="meta-label">Current</div>
             <div class="meta-value">個人事業主 / 2026年4月開業予定</div>
           </div>
-          <div>
+          <div class="meta-item">
             <div class="meta-label">Background</div>
-            <div class="meta-value">PCI Solutions 3年 / ALTEN Japan 4年</div>
+            <div class="meta-value">COMPANY_TEST_1 3年 / COMPANY_TEST_2 4年</div>
           </div>
-          <div>
+          <div class="meta-item">
             <div class="meta-label">Focus</div>
             <div class="meta-value">生成AI活用・業務改善・技術支援</div>
           </div>
@@ -375,7 +596,7 @@
 
     <section id="services">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-kicker">Services</div>
           <div>
             <h2 class="section-title">提供内容</h2>
@@ -386,7 +607,7 @@
         </div>
 
         <div class="grid">
-          <article class="card">
+          <article class="card reveal stagger-1">
             <div class="card-index">01</div>
             <h3>AI活用支援</h3>
             <p>
@@ -395,7 +616,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card reveal stagger-2">
             <div class="card-index">02</div>
             <h3>IT技術コンサルティング</h3>
             <p>
@@ -404,7 +625,7 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="card reveal stagger-3">
             <div class="card-index">03</div>
             <h3>業務効率化ツール / アプリ開発</h3>
             <p>
@@ -418,7 +639,7 @@
 
     <section id="career">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-kicker">Career</div>
           <div>
             <h2 class="section-title">経歴</h2>
@@ -429,10 +650,10 @@
         </div>
 
         <div class="timeline">
-          <div class="timeline-item">
+          <div class="timeline-item reveal-left">
             <div class="timeline-year">2019.04 — 2022.03</div>
             <div class="timeline-body">
-              <h3>PCI Solutions, Inc.</h3>
+              <h3>COMPANY_TEST_1</h3>
               <p>
                 ソフトウェア開発業に3年間従事。システム開発および運用保守のチームリーダーを担当し、
                 開発だけでなく、運用面・継続性・現場調整も含めて経験しました。
@@ -440,10 +661,10 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item reveal-left stagger-1">
             <div class="timeline-year">2022.04 — 2026.03</div>
             <div class="timeline-body">
-              <h3>ALTEN Japan Co., Ltd.</h3>
+              <h3>COMPANY_TEST_2</h3>
               <p>
                 ソフトウェア開発業 / ITコンサルティング領域に4年間従事。
                 生成AI活用プロジェクトリーダーを務め、業務理解と技術支援を接続しながら、
@@ -452,7 +673,7 @@
             </div>
           </div>
 
-          <div class="timeline-item">
+          <div class="timeline-item reveal-left stagger-2">
             <div class="timeline-year">2026.04 —</div>
             <div class="timeline-body">
               <h3>個人事業主として開業</h3>
@@ -468,7 +689,7 @@
 
     <section id="strength">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-kicker">Strength</div>
           <div>
             <h2 class="section-title">強み / 事業の方向性</h2>
@@ -479,7 +700,7 @@
         </div>
 
         <div class="list">
-          <div class="list-box">
+          <div class="list-box reveal stagger-1">
             <h3>強み</h3>
             <ul class="plain-list">
               <li>上流から下流まで一貫して経験していること</li>
@@ -489,7 +710,7 @@
             </ul>
           </div>
 
-          <div class="list-box">
+          <div class="list-box reveal stagger-2">
             <h3>対象 / 方針</h3>
             <ul class="plain-list">
               <li>主な対象は、業務効率化やデジタル活用を求める法人</li>
@@ -504,7 +725,7 @@
 
     <section>
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-kicker">Qualification</div>
           <div>
             <h2 class="section-title">資格</h2>
@@ -515,7 +736,7 @@
         </div>
 
         <div class="list">
-          <div class="list-box">
+          <div class="list-box reveal stagger-1">
             <h3>保有資格</h3>
             <ul class="plain-list">
               <li>GUGA Generative AI Passport（2025年10月取得）</li>
@@ -524,7 +745,7 @@
             </ul>
           </div>
 
-          <div class="list-box">
+          <div class="list-box reveal stagger-2">
             <h3>補足</h3>
             <ul class="plain-list">
               <li>許認可：特になし</li>
@@ -538,14 +759,14 @@
 
     <section>
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-kicker">About</div>
           <div>
             <h2 class="section-title">自己紹介</h2>
           </div>
         </div>
 
-        <div class="about-copy">
+        <div class="about-copy reveal stagger-1">
           これまで業務を通じて、企業の課題整理や改善に向けた技術支援に携わってきました。
           独立後は、企業のIT活用や業務効率化を丁寧に支援し、継続的に価値を提供できる事業者を目指しています。
         </div>
@@ -554,14 +775,14 @@
 
     <section id="contact">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div class="section-kicker">Contact</div>
           <div>
             <h2 class="section-title">問い合わせ</h2>
           </div>
         </div>
 
-        <div class="contact-box">
+        <div class="contact-box reveal stagger-1">
           <div class="contact-copy">
             <strong>案件相談、技術支援、AI活用に関するご相談はこちらから。</strong>
             <p>
@@ -575,7 +796,37 @@
   </main>
 
   <footer>
-    <div class="wrap">© 2026 Kaito Iino</div>
+    <div class="wrap">© 2026 NAME</div>
   </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+
+    const onScroll = () => {
+      if (window.scrollY > 10) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const targets = document.querySelectorAll('.reveal, .reveal-left');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '0px 0px -6% 0px'
+    });
+
+    targets.forEach((el) => io.observe(el));
+  </script>
 </body>
 </html>
