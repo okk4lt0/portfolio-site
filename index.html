@@ -23,6 +23,7 @@
       --max:1120px;
       --ease:cubic-bezier(.22,1,.36,1);
       --header-bg:rgba(246,244,239,.82);
+      --header-offset:88px;
     }
 
     *{box-sizing:border-box}
@@ -80,18 +81,15 @@
     }
 
     .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       font-size:14px;
       font-weight:700;
       letter-spacing:.12em;
       text-transform:uppercase;
       white-space:nowrap;
       position:relative;
-    }
-    
-    .brand img{
-      height:32px;
-      width:auto;
-      display:block;
     }
 
     .brand::after{
@@ -145,10 +143,15 @@
       transform-origin:left;
     }
 
+    section{
+      padding:76px 0;
+      border-bottom:1px solid var(--line);
+      scroll-margin-top:var(--header-offset);
+    }
+
     .hero{
       position:relative;
-      padding:104px 0 84px;
-      border-bottom:1px solid var(--line);
+      padding:104px 0 92px;
       overflow:hidden;
       background:
         radial-gradient(circle at 20% 10%, rgba(255,255,255,.55), transparent 35%),
@@ -190,9 +193,7 @@
       align-items:center;
     }
 
-    .hero-text{
-      min-width:0;
-    }
+    .hero-text{min-width:0}
 
     .eyebrow{
       font-size:12px;
@@ -206,12 +207,12 @@
       animation:heroFadeUp .8s .08s var(--ease) forwards;
     }
 
-    h1{
+    .hero h1{
       margin:0;
-      font-size:clamp(44px, 8vw, 104px);
+      font-size:clamp(42px, 7vw, 92px);
       line-height:.94;
       letter-spacing:-.055em;
-      max-width:11ch;
+      max-width:10ch;
       font-weight:800;
       opacity:0;
       transform:translateY(24px);
@@ -219,8 +220,8 @@
     }
 
     .lead{
-      margin:28px 0 0;
-      max-width:760px;
+      margin:24px 0 0;
+      max-width:740px;
       font-size:clamp(17px, 2vw, 22px);
       color:var(--muted);
       opacity:0;
@@ -228,8 +229,51 @@
       animation:heroFadeUp .95s .28s var(--ease) forwards;
     }
 
+    .hero-cta{
+      margin-top:30px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+      opacity:0;
+      transform:translateY(18px);
+      animation:heroFadeUp .95s .34s var(--ease) forwards;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border:1px solid var(--text);
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      transition:
+        transform .35s var(--ease),
+        background .35s var(--ease),
+        color .35s var(--ease),
+        opacity .35s var(--ease);
+    }
+
+    .button.primary{
+      background:var(--text);
+      color:var(--bg);
+    }
+
+    .button.secondary{
+      background:transparent;
+      color:var(--text);
+    }
+
+    .button:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
+
     .hero-meta{
-      margin-top:44px;
+      margin-top:40px;
       display:grid;
       grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:18px 28px;
@@ -288,12 +332,6 @@
       filter:contrast(1.05) brightness(1);
     }
 
-    section{
-      padding:76px 0;
-      border-bottom:1px solid var(--line);
-      scroll-margin-top:88px;
-    }
-
     .section-head{
       display:grid;
       grid-template-columns:220px 1fr;
@@ -323,30 +361,61 @@
       font-size:16px;
     }
 
+    .proof-grid,
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
 
-    .card{
+    .proof-card,
+    .card,
+    .list-box,
+    .approach-card{
       background:rgba(255,255,255,.42);
       border:1px solid rgba(17,17,17,.08);
       padding:22px;
-      min-height:250px;
       transition:
         transform .45s var(--ease),
         border-color .35s var(--ease),
         box-shadow .45s var(--ease),
         background .35s var(--ease);
-      will-change:transform;
     }
 
-    .card:hover{
+    .proof-card:hover,
+    .card:hover,
+    .list-box:hover,
+    .approach-card:hover{
       transform:translateY(-6px);
       border-color:rgba(17,17,17,.16);
       box-shadow:0 18px 40px rgba(17,17,17,.06);
       background:rgba(255,255,255,.55);
+    }
+
+    .proof-card h3,
+    .card h3,
+    .list-box h3,
+    .approach-card h3{
+      margin:0 0 12px;
+      font-size:24px;
+      line-height:1.02;
+      letter-spacing:-.03em;
+    }
+
+    .proof-card p,
+    .card p,
+    .approach-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .proof-label{
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.08em;
+      margin-bottom:18px;
+      text-transform:uppercase;
     }
 
     .card-index{
@@ -356,17 +425,18 @@
       letter-spacing:.08em;
     }
 
-    .card h3{
-      margin:0 0 12px;
-      font-size:24px;
-      line-height:1.02;
-      letter-spacing:-.03em;
+    .approach-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
     }
 
-    .card p{
-      margin:0;
+    .approach-step{
+      font-size:12px;
       color:var(--muted);
-      font-size:15px;
+      letter-spacing:.08em;
+      margin-bottom:16px;
+      text-transform:uppercase;
     }
 
     .career-image{
@@ -435,29 +505,6 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
-    }
-
-    .list-box{
-      background:rgba(255,255,255,.42);
-      border:1px solid rgba(17,17,17,.08);
-      padding:22px;
-      transition:
-        transform .4s var(--ease),
-        box-shadow .4s var(--ease),
-        border-color .3s ease;
-    }
-
-    .list-box:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 34px rgba(17,17,17,.05);
-      border-color:rgba(17,17,17,.14);
-    }
-
-    .list-box h3{
-      margin:0 0 14px;
-      font-size:22px;
-      line-height:1.04;
-      letter-spacing:-.03em;
     }
 
     .plain-list{
@@ -593,14 +640,24 @@
       50%{ transform:translate3d(16px,14px,0) scale(1.05); }
     }
 
+    @media (max-width:1100px){
+      .approach-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
     @media (max-width:980px){
       .hero-grid{
         grid-template-columns:1fr;
         gap:32px;
       }
       .hero-meta{grid-template-columns:1fr 1fr}
-      .grid{grid-template-columns:1fr}
-      .list{grid-template-columns:1fr}
+      .proof-grid,
+      .grid,
+      .approach-grid,
+      .list{
+        grid-template-columns:1fr;
+      }
     }
 
     @media (max-width:900px){
@@ -618,7 +675,7 @@
       header.is-scrolled .nav{height:58px}
       .hero{padding:56px 0 48px}
       section{padding:52px 0}
-      h1{max-width:none}
+      .hero h1{max-width:none}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -628,7 +685,7 @@
         transition:none !important;
       }
       .reveal, .reveal-left,
-      .eyebrow, h1, .lead, .hero-meta, .hero-image{
+      .eyebrow, .hero h1, .lead, .hero-meta, .hero-image, .hero-cta{
         opacity:1 !important;
         transform:none !important;
       }
@@ -639,7 +696,7 @@
   <header id="siteHeader">
     <div class="wrap">
       <div class="nav">
-        <a href="#" class="brand"><img src="images/Icon_work.png" alt="logo"></a>
+        <a href="#" class="brand">NAME</a>
         <nav class="menu">
           <a href="#services">提供内容</a>
           <a href="#career">経歴</a>
@@ -655,11 +712,16 @@
       <div class="wrap hero-grid">
         <div class="hero-text">
           <div class="eyebrow">AI Enablement / IT Consulting / Software Development</div>
-          <h1>業務課題を整理し、AIと実装で前に進める。</h1>
+          <h1>業務理解と技術実装で、現場で機能する改善をつくる。</h1>
           <p class="lead">
-            AI活用支援、IT技術コンサルティング、業務効率化ツール・アプリケーション開発。
-            上流から下流まで一貫して対応し、課題整理から改善提案、実装、運用の土台づくりまで担います。
+            システム開発・運用保守・ITコンサルティング・生成AI活用推進まで。
+            技術だけでも、業務理解だけでも終わらせず、課題整理から提案、実装、運用まで一貫して支援します。
           </p>
+
+          <div class="hero-cta">
+            <a class="button primary" href="#contact">相談する</a>
+            <a class="button secondary" href="#career">経歴を見る</a>
+          </div>
 
           <div class="hero-meta">
             <div class="meta-item">
@@ -683,6 +745,40 @@
       </div>
     </section>
 
+    <section id="proof">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-kicker">Proof</div>
+          <div>
+            <h2 class="section-title">信頼の根拠</h2>
+            <p class="section-desc">
+              技術職としての実務経験に加え、業務側の理解と改善推進まで担当してきたことが、現在の支援スタイルの基盤になっています。
+            </p>
+          </div>
+        </div>
+
+        <div class="proof-grid">
+          <div class="proof-card reveal stagger-1">
+            <div class="proof-label">2019 — 2022</div>
+            <h3>System Development / Operations</h3>
+            <p>システム開発と運用保守に携わり、継続運用と現場調整まで含めた改善を経験。</p>
+          </div>
+
+          <div class="proof-card reveal stagger-2">
+            <div class="proof-label">2022 — 2026</div>
+            <h3>IT Consulting / AI Enablement</h3>
+            <p>ソフトウェア開発・ITコンサルティングに加え、生成AI活用プロジェクトの設計と推進を担当。</p>
+          </div>
+
+          <div class="proof-card reveal stagger-3">
+            <div class="proof-label">2026 —</div>
+            <h3>Independent Consultant</h3>
+            <p>顧客課題により直接的に価値を提供するため独立。継続支援を前提とした事業基盤を構築中。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="services">
       <div class="wrap">
         <div class="section-head reveal">
@@ -700,8 +796,7 @@
             <div class="card-index">01</div>
             <h3>AI活用支援</h3>
             <p>
-              業務効率化やツール活用支援を中心に、現場で使える形に落とし込むAI活用を支援します。
-              活用テーマの整理、導入設計、運用面の検討まで対応します。
+              生成AIの導入や活用テーマの整理に加え、現場で使える形へ落とし込む運用設計まで支援します。
             </p>
           </article>
 
@@ -709,8 +804,7 @@
             <div class="card-index">02</div>
             <h3>IT技術コンサルティング</h3>
             <p>
-              業務課題の把握から改善提案、技術提案までを一貫して支援します。
-              単なる助言に留まらず、実行可能な設計に落とし込むことを重視しています。
+              業務課題の把握から改善提案、技術提案まで一貫して支援し、実行可能な設計に落とし込みます。
             </p>
           </article>
 
@@ -718,10 +812,49 @@
             <div class="card-index">03</div>
             <h3>業務効率化ツール / アプリ開発</h3>
             <p>
-              簡易ツールや社内向けアプリケーションの開発を通じて、業務の再現性と効率を高めます。
-              現場運用を前提とした開発・改善が中心です。
+              業務の再現性と効率を高めるためのツール・アプリケーションを、現場運用を前提に開発します。
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-kicker">Approach</div>
+          <div>
+            <h2 class="section-title">仕事の進め方</h2>
+            <p class="section-desc">
+              相談を受けた後は、技術だけでなく業務の背景まで理解した上で、改善が現場で機能する形になるまで支援します。
+            </p>
+          </div>
+        </div>
+
+        <div class="approach-grid">
+          <div class="approach-card reveal stagger-1">
+            <div class="approach-step">Step 01</div>
+            <h3>課題を理解する</h3>
+            <p>現状の業務プロセスや背景を整理し、表面的な要望ではなく本質的な課題を把握します。</p>
+          </div>
+
+          <div class="approach-card reveal stagger-2">
+            <div class="approach-step">Step 02</div>
+            <h3>改善案を設計する</h3>
+            <p>技術と業務の両面から、現実的かつ継続可能な改善案を設計します。</p>
+          </div>
+
+          <div class="approach-card reveal stagger-3">
+            <div class="approach-step">Step 03</div>
+            <h3>実装する</h3>
+            <p>システム・運用・AI活用を含め、現場で機能する形で実装と調整を行います。</p>
+          </div>
+
+          <div class="approach-card reveal stagger-4">
+            <div class="approach-step">Step 04</div>
+            <h3>改善を継続する</h3>
+            <p>導入して終わりではなく、運用しながら改善を続けられる状態まで整えます。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -816,47 +949,6 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker">Qualification</div>
-          <div>
-            <h2 class="section-title">資格</h2>
-            <p class="section-desc">
-              実務中心の経歴を軸にしつつ、生成AI・クラウド・英語基礎の資格も保有しています。
-            </p>
-          </div>
-        </div>
-
-        <div class="list">
-          <div class="list-box reveal stagger-1">
-            <h3>保有資格</h3>
-            <ul class="plain-list">
-              <li>GUGA Generative AI Passport（2025年10月取得）</li>
-              <li>AWS Partners: Accreditation</li>
-              <li>TOEIC Listening &amp; Reading Test 510点</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker">About</div>
-          <div>
-            <h2 class="section-title">自己紹介</h2>
-          </div>
-        </div>
-
-        <div class="about-copy reveal stagger-1">
-          これまで業務を通じて、企業の課題整理や改善に向けた技術支援に携わってきました。
-          独立後は、企業のIT活用や業務効率化を丁寧に支援し、継続的に価値を提供できる事業者を目指しています。
-        </div>
-      </div>
-    </section>
-
     <section id="contact">
       <div class="wrap">
         <div class="section-head reveal">
@@ -868,7 +960,7 @@
 
         <div class="contact-box reveal stagger-1">
           <div class="contact-copy">
-            <strong>案件相談、技術支援、AI活用に関するご相談はこちらから。</strong>
+            <strong>IT改善・技術支援・AI活用に関するご相談はこちらから。</strong>
             <p>
               ご相談内容、目的、現在の課題、想定時期を簡単に添えていただけるとスムーズです。
             </p>
