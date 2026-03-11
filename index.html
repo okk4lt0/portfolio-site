@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>NAME | Portfolio</title>
-  <meta name="description" content="NAMEのポートフォリオ。AI活用支援、IT技術コンサルティング、業務効率化ツール・アプリケーション開発。">
+  <meta name="description" content="NAMEのポートフォリオ。AI活用支援、IT技術コンサルティング、業務改善、業務効率化ツール・アプリケーション開発。">
   <meta name="author" content="NAME">
   <meta name="robots" content="index, follow">
 
@@ -91,7 +91,7 @@
       white-space:nowrap;
       position:relative;
     }
-    
+
     .brand img{
       height:32px;
       width:auto;
@@ -367,6 +367,7 @@
       font-size:16px;
     }
 
+    .issues-grid,
     .proof-grid,
     .grid{
       display:grid;
@@ -374,6 +375,7 @@
       gap:18px;
     }
 
+    .issues-card,
     .proof-card,
     .card,
     .list-box,
@@ -388,6 +390,7 @@
         background .35s var(--ease);
     }
 
+    .issues-card:hover,
     .proof-card:hover,
     .card:hover,
     .list-box:hover,
@@ -398,6 +401,7 @@
       background:rgba(255,255,255,.55);
     }
 
+    .issues-card h3,
     .proof-card h3,
     .card h3,
     .list-box h3,
@@ -408,6 +412,7 @@
       letter-spacing:-.03em;
     }
 
+    .issues-card p,
     .proof-card p,
     .card p,
     .approach-card p{
@@ -416,19 +421,20 @@
       font-size:15px;
     }
 
-    .proof-label{
+    .issues-card .small,
+    .proof-label,
+    .card-index,
+    .approach-step{
       font-size:12px;
       color:var(--muted);
       letter-spacing:.08em;
-      margin-bottom:18px;
       text-transform:uppercase;
     }
 
+    .issues-card .small,
+    .proof-label,
     .card-index{
-      font-size:12px;
-      color:var(--muted);
-      margin-bottom:28px;
-      letter-spacing:.08em;
+      margin-bottom:18px;
     }
 
     .approach-grid{
@@ -438,11 +444,7 @@
     }
 
     .approach-step{
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.08em;
       margin-bottom:16px;
-      text-transform:uppercase;
     }
 
     .career-image{
@@ -521,13 +523,6 @@
 
     .plain-list li{
       margin:8px 0;
-    }
-
-    .about-copy{
-      max-width:860px;
-      font-size:clamp(20px,2.8vw,34px);
-      line-height:1.18;
-      letter-spacing:-.03em;
     }
 
     .contact-box{
@@ -658,6 +653,7 @@
         gap:32px;
       }
       .hero-meta{grid-template-columns:1fr 1fr}
+      .issues-grid,
       .proof-grid,
       .grid,
       .approach-grid,
@@ -704,6 +700,7 @@
       <div class="nav">
         <a href="#" class="brand"><img src="images/Icon_work.png" alt="logo"></a>
         <nav class="menu">
+          <a href="#issues">課題</a>
           <a href="#services">提供内容</a>
           <a href="#career">経歴</a>
           <a href="#strength">強み</a>
@@ -720,7 +717,7 @@
           <div class="eyebrow">AI Enablement / IT Consulting / Software Development</div>
           <h1>業務理解と技術実装で、現場で機能する改善をつくる。</h1>
           <p class="lead">
-            システム開発・運用保守・ITコンサルティング・生成AI活用推進まで。
+            組み込み・車載・業務システム開発から、ITコンサルティング、運用改善、生成AI活用推進まで。
             技術だけでも、業務理解だけでも終わらせず、課題整理から提案、実装、運用まで一貫して支援します。
           </p>
 
@@ -731,22 +728,74 @@
 
           <div class="hero-meta">
             <div class="meta-item">
-              <div class="meta-label">Current</div>
-              <div class="meta-value">個人事業主 / 2026年4月開業予定</div>
+              <div class="meta-label">Experience</div>
+              <div class="meta-value">IT業界 約6年半</div>
             </div>
             <div class="meta-item">
               <div class="meta-label">Background</div>
-              <div class="meta-value">システム開発・運用保守 / ITコンサルティング / 生成AI活用推進</div>
+              <div class="meta-value">開発 / 顧客折衝 / PL / PMO補佐 / AI活用推進</div>
             </div>
             <div class="meta-item">
               <div class="meta-label">Focus</div>
-              <div class="meta-value">生成AI活用・業務改善・技術支援</div>
+              <div class="meta-value">業務改善・プロセス改善・AI活用・技術支援</div>
             </div>
           </div>
         </div>
 
         <div class="hero-image">
           <img src="images/hero-workspace.webp" alt="静かで洗練されたワークスペース">
+        </div>
+      </div>
+    </section>
+
+    <section id="issues">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-kicker">Issues</div>
+          <div>
+            <h2 class="section-title">こういう課題ありませんか？</h2>
+            <p class="section-desc">
+              技術課題そのものだけでなく、開発・運用・業務の間にある「詰まり」を整理し、現場で機能する形まで落とし込みます。
+            </p>
+          </div>
+        </div>
+
+        <div class="issues-grid">
+          <div class="issues-card reveal stagger-1">
+            <div class="small">Issue 01</div>
+            <h3>開発と業務の認識が噛み合わない</h3>
+            <p>
+              要望はあるのに仕様が曖昧、顧客と開発側の解釈がずれて手戻りが多い。
+              顧客折衝と実装の両方を経験している立場から、認識を接続します。
+            </p>
+          </div>
+
+          <div class="issues-card reveal stagger-2">
+            <div class="small">Issue 02</div>
+            <h3>開発プロセスや運用が整っていない</h3>
+            <p>
+              進捗管理、成果物、レビュー、情報共有が属人的で、生産性が上がらない。
+              Jira / Confluence / Slack なども含め、実務に効く形で整備します。
+            </p>
+          </div>
+
+          <div class="issues-card reveal stagger-3">
+            <div class="small">Issue 03</div>
+            <h3>AIを導入したいが業務に落ちない</h3>
+            <p>
+              生成AIを試しても、現場運用やドキュメント整備、設計補助まで繋がらない。
+              活用テーマの整理から導入・定着まで支援します。
+            </p>
+          </div>
+
+          <div class="issues-card reveal stagger-4">
+            <div class="small">Issue 04</div>
+            <h3>既存システムやログ運用を改善したい</h3>
+            <p>
+              ログ基盤、監視、ダッシュボード、データ抽出が現場で使い切れていない。
+              Datadog / Splunk / Python などの知見も活かして改善します。
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -758,7 +807,7 @@
           <div>
             <h2 class="section-title">信頼の根拠</h2>
             <p class="section-desc">
-              技術職としての実務経験に加え、業務側の理解と改善推進まで担当してきたことが、現在の支援スタイルの基盤になっています。
+              5年半にわたる開発現場での実装・顧客折衝・リーダー経験に加え、現職ではプロセス改善とAI活用推進まで担当しています。
             </p>
           </div>
         </div>
@@ -766,20 +815,29 @@
         <div class="proof-grid">
           <div class="proof-card reveal stagger-1">
             <div class="proof-label">2019 — 2022</div>
-            <h3>System Development / Operations</h3>
-            <p>システム開発と運用保守に携わり、継続運用と現場調整まで含めた改善を経験。</p>
+            <h3>組み込み・車載・ネットワーク・ストレージ開発</h3>
+            <p>
+              C / C++ / Python を中心に、組み込み・車載・通信・クラウド連携開発を経験。
+              AUTOSAR案件では要件定義から評価まで一貫して担当しました。
+            </p>
           </div>
 
           <div class="proof-card reveal stagger-2">
             <div class="proof-label">2022 — 2026</div>
-            <h3>IT Consulting / AI Enablement</h3>
-            <p>ソフトウェア開発・ITコンサルティングに加え、生成AI活用プロジェクトの設計と推進を担当。</p>
+            <h3>顧客折衝を伴う開発・導入・改善支援</h3>
+            <p>
+              売上分析システム導入支援、カーナビ開発、ログ管理基盤移行、マウンター開発などで、
+              顧客との調整から設計・実装・テストまで担当しました。
+            </p>
           </div>
 
           <div class="proof-card reveal stagger-3">
-            <div class="proof-label">2026 —</div>
-            <h3>Independent Consultant</h3>
-            <p>顧客課題により直接的に価値を提供するため独立。継続支援を前提とした事業基盤を構築中。</p>
+            <div class="proof-label">2024 —</div>
+            <h3>PL / PMO補佐 / AI活用推進</h3>
+            <p>
+              5名チームを率いて開発プロセスの標準化・改善を推進。
+              Jira導入、Slack活用、PlantUMLやConfluenceを含むAI活用も主導しています。
+            </p>
           </div>
         </div>
       </div>
@@ -802,7 +860,8 @@
             <div class="card-index">01</div>
             <h3>AI活用支援</h3>
             <p>
-              生成AIの導入や活用テーマの整理に加え、現場で使える形へ落とし込む運用設計まで支援します。
+              生成AIの導入や活用テーマの整理に加え、設計書・仕様書・業務フローへの落とし込みまで支援します。
+              PoCで終わらせず、現場で使える形へ繋げます。
             </p>
           </article>
 
@@ -810,7 +869,8 @@
             <div class="card-index">02</div>
             <h3>IT技術コンサルティング</h3>
             <p>
-              業務課題の把握から改善提案、技術提案まで一貫して支援し、実行可能な設計に落とし込みます。
+              業務課題の把握から改善提案、技術提案、プロセス整理まで一貫して支援します。
+              技術的実現性と現場運用の両面から、実行可能な設計に落とし込みます。
             </p>
           </article>
 
@@ -819,6 +879,7 @@
             <h3>業務効率化ツール / アプリ開発</h3>
             <p>
               業務の再現性と効率を高めるためのツール・アプリケーションを、現場運用を前提に開発します。
+              既存資産や運用フローを踏まえた改善も対応可能です。
             </p>
           </article>
         </div>
@@ -872,7 +933,7 @@
           <div>
             <h2 class="section-title">経歴</h2>
             <p class="section-desc">
-              システム開発・運用保守、ITコンサルティング、生成AI活用推進まで、技術と業務の両面を経験しています。
+              組み込み・車載・ネットワーク・ストレージ開発から、業務システム導入支援、ログ基盤移行、ITコンサルティング、生成AI活用推進まで、技術と業務の両面を経験しています。
             </p>
           </div>
         </div>
@@ -883,12 +944,12 @@
 
         <div class="timeline">
           <div class="timeline-item reveal-left">
-            <div class="timeline-year">2019.04 — 2022.03</div>
+            <div class="timeline-year">2019.04 — 2022.04</div>
             <div class="timeline-body">
               <h3>COMPANY_TEST_1</h3>
               <p>
-                システム開発および運用保守に携わり、チームの技術的な取りまとめと現場調整を担当。
-                開発だけでなく、運用面や継続的なシステム改善にも関わりました。
+                組み込み・車載開発を中心に、カーナビ、ECU制御、ネットワーク機器、ストレージのクラウド連携、AUTOSAR準拠の画像センサ開発まで幅広く担当。
+                実装・評価だけでなく、AUTOSAR案件では要件定義から評価まで一貫して担い、プロジェクトリーダーとしてタスク・進捗管理も経験しました。
               </p>
             </div>
           </div>
@@ -898,20 +959,32 @@
             <div class="timeline-body">
               <h3>COMPANY_TEST_2</h3>
               <p>
-                ソフトウェア開発およびITコンサルティング領域に携わり、
-                生成AI活用プロジェクトの設計と推進を担当。
-                業務理解と技術支援を接続し、現場で機能する改善を実装しました。
+                売上分析システム導入支援、カーナビ開発、DatadogからSplunkへのログ管理基盤移行、
+                大手メーカー向けマウンター開発などに従事。
+                顧客折衝、仕様策定、設計、実装、テスト、導入支援まで幅広く担当し、現場解像度の高い支援を積み重ねました。
               </p>
             </div>
           </div>
 
           <div class="timeline-item reveal-left stagger-2">
+            <div class="timeline-year">2024.12 — 2026.03</div>
+            <div class="timeline-body">
+              <h3>PL / PMO補佐 / AI活用推進</h3>
+              <p>
+                大手自動車メーカー向けアプリ開発にて、クライアントPMOを補佐するPLとして5名のチームを牽引。
+                開発プロセスの標準化・品質向上支援、Jira導入による進捗管理の移行、Slack活用による業務効率化、
+                PlantUMLやConfluence移行などAI活用による新規業務開拓を主導しました。
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-left stagger-3">
             <div class="timeline-year">2026.04 —</div>
             <div class="timeline-body">
               <h3>個人事業主として開業</h3>
               <p>
                 顧客課題の解決により直接的に価値を提供するため独立。
-                将来的な法人化も視野に入れ、事業基盤の構築を進めています。
+                開発現場で培った現場解像度の高さを武器に、実効性のあるITコンサルティングと改善支援を提供します。
               </p>
             </div>
           </div>
@@ -926,7 +999,7 @@
           <div>
             <h2 class="section-title">強み / 事業の方向性</h2>
             <p class="section-desc">
-              課題整理から提案、実装、運用まで一貫して支援できることを強みとしています。
+              5年半以上にわたる開発現場の最前線で培った「現場解像度の高さ」を武器に、実効性のあるITコンサルティングと改善支援を提供できることが強みです。
             </p>
           </div>
         </div>
@@ -935,20 +1008,20 @@
           <div class="list-box reveal stagger-1">
             <h3>強み</h3>
             <ul class="plain-list">
-              <li>上流から下流まで一貫して経験していること</li>
-              <li>業務課題の把握から改善提案、ツール開発まで幅広く対応できること</li>
-              <li>関係者調整や業務推進を円滑に進められること</li>
-              <li>AI活用支援と業務改善を実行までつなげられること</li>
+              <li>開発現場の実装経験を踏まえ、技術的実現性を伴った提案ができること</li>
+              <li>顧客折衝から設計・実装・テスト・導入まで一貫して関われること</li>
+              <li>Jira / Confluence / Slack / Splunk などを活用したプロセス改善ができること</li>
+              <li>生成AI活用を、業務フローやドキュメント運用に接続できること</li>
             </ul>
           </div>
 
           <div class="list-box reveal stagger-2">
             <h3>対象 / 方針</h3>
             <ul class="plain-list">
-              <li>主な対象は、業務効率化やデジタル活用を求める法人</li>
-              <li>既存取引先を中心に、継続取引と紹介を基盤として案件を獲得</li>
-              <li>必要に応じてSNS等の情報発信も活用し、顧客接点を拡大</li>
-              <li>業務理解と技術支援を一貫して提供するポジションを強みにする</li>
+              <li>業務効率化、開発プロセス改善、AI活用を進めたい法人を主な対象としています</li>
+              <li>技術だけ、資料だけで終わらず、現場で機能する形まで支援します</li>
+              <li>単発の開発要員ではなく、改善を前に進める伴走者として価値を出します</li>
+              <li>継続支援と紹介を基盤に、信頼関係を重視して事業を拡大します</li>
             </ul>
           </div>
         </div>
@@ -966,9 +1039,10 @@
 
         <div class="contact-box reveal stagger-1">
           <div class="contact-copy">
-            <strong>IT改善・技術支援・AI活用に関するご相談はこちらから。</strong>
+            <strong>開発・業務改善・AI活用に関するご相談はこちらから。</strong>
             <p>
-              ご相談内容、目的、現在の課題、想定時期を簡単に添えていただけるとスムーズです。
+              IT改善、プロセス整備、生成AI活用、システム開発支援など、
+              ご相談内容・目的・現在の課題・想定時期を簡単に添えていただけるとスムーズです。
             </p>
           </div>
           <a class="mail" href="mailto:test@test.com">test@test.com</a>
