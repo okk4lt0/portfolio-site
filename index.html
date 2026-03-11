@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>NAME | Portfolio</title>
-  <meta name="description" content="NAMEのポートフォリオ。AI活用支援、IT技術コンサルティング、業務改善、業務効率化ツール・アプリケーション開発。">
+  <meta name="description" content="NAMEのポートフォリオ。IT改善、業務整理、システム開発、生成AI活用支援を通じて、現場で機能する改善を支援します。">
   <meta name="author" content="NAME">
   <meta name="robots" content="index, follow">
 
@@ -19,7 +19,6 @@
       --text:#111111;
       --muted:#5f5a52;
       --line:#d9d2c6;
-      --panel:#fbfaf7;
       --max:1120px;
       --ease:cubic-bezier(.22,1,.36,1);
       --header-bg:rgba(246,244,239,.82);
@@ -84,10 +83,6 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
       white-space:nowrap;
       position:relative;
     }
@@ -174,7 +169,6 @@
       background:radial-gradient(circle, rgba(17,17,17,.055), transparent 65%);
       filter:blur(18px);
       pointer-events:none;
-      transform:translate3d(0,0,0);
       animation:floatOrb 8s ease-in-out infinite;
     }
 
@@ -194,7 +188,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
+      grid-template-columns:1.05fr .95fr;
       gap:56px;
       align-items:center;
     }
@@ -218,7 +212,7 @@
       font-size:clamp(42px, 7vw, 92px);
       line-height:.94;
       letter-spacing:-.055em;
-      max-width:10ch;
+      max-width:9ch;
       font-weight:800;
       opacity:0;
       transform:translateY(24px);
@@ -227,7 +221,7 @@
 
     .lead{
       margin:24px 0 0;
-      max-width:740px;
+      max-width:760px;
       font-size:clamp(17px, 2vw, 22px);
       color:var(--muted);
       opacity:0;
@@ -367,19 +361,22 @@
       font-size:16px;
     }
 
-    .issues-grid,
-    .proof-grid,
-    .grid{
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .grid-3{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
 
-    .issues-card,
-    .proof-card,
     .card,
-    .list-box,
-    .approach-card{
+    .compact-card,
+    .approach-card,
+    .timeline-summary{
       background:rgba(255,255,255,.42);
       border:1px solid rgba(17,17,17,.08);
       padding:22px;
@@ -390,61 +387,49 @@
         background .35s var(--ease);
     }
 
-    .issues-card:hover,
-    .proof-card:hover,
     .card:hover,
-    .list-box:hover,
-    .approach-card:hover{
+    .compact-card:hover,
+    .approach-card:hover,
+    .timeline-summary:hover{
       transform:translateY(-6px);
       border-color:rgba(17,17,17,.16);
       box-shadow:0 18px 40px rgba(17,17,17,.06);
       background:rgba(255,255,255,.55);
     }
 
-    .issues-card h3,
-    .proof-card h3,
     .card h3,
-    .list-box h3,
-    .approach-card h3{
+    .compact-card h3,
+    .approach-card h3,
+    .timeline-summary h3{
       margin:0 0 12px;
       font-size:24px;
       line-height:1.02;
       letter-spacing:-.03em;
     }
 
-    .issues-card p,
-    .proof-card p,
     .card p,
-    .approach-card p{
+    .compact-card p,
+    .approach-card p,
+    .timeline-summary p{
       margin:0;
       color:var(--muted);
       font-size:15px;
     }
 
-    .issues-card .small,
-    .proof-label,
     .card-index,
+    .small-label,
     .approach-step{
       font-size:12px;
       color:var(--muted);
       letter-spacing:.08em;
       text-transform:uppercase;
-    }
-
-    .issues-card .small,
-    .proof-label,
-    .card-index{
-      margin-bottom:18px;
+      margin-bottom:16px;
     }
 
     .approach-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:18px;
-    }
-
-    .approach-step{
-      margin-bottom:16px;
     }
 
     .career-image{
@@ -507,22 +492,6 @@
       margin:0;
       color:var(--muted);
       max-width:760px;
-    }
-
-    .list{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .plain-list{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
-    }
-
-    .plain-list li{
-      margin:8px 0;
     }
 
     .contact-box{
@@ -623,12 +592,8 @@
     }
 
     @keyframes heroFloat{
-      0%,100%{
-        transform:translateY(0) scale(1);
-      }
-      50%{
-        transform:translateY(-6px) scale(1.006);
-      }
+      0%,100%{ transform:translateY(0) scale(1); }
+      50%{ transform:translateY(-6px) scale(1.006); }
     }
 
     @keyframes floatOrb{
@@ -642,7 +607,8 @@
     }
 
     @media (max-width:1100px){
-      .approach-grid{
+      .approach-grid,
+      .grid-4{
         grid-template-columns:repeat(2,1fr);
       }
     }
@@ -652,12 +618,12 @@
         grid-template-columns:1fr;
         gap:32px;
       }
-      .hero-meta{grid-template-columns:1fr 1fr}
-      .issues-grid,
-      .proof-grid,
-      .grid,
-      .approach-grid,
-      .list{
+      .hero-meta{
+        grid-template-columns:1fr 1fr;
+      }
+      .grid-4,
+      .grid-3,
+      .approach-grid{
         grid-template-columns:1fr;
       }
     }
@@ -700,10 +666,10 @@
       <div class="nav">
         <a href="#" class="brand"><img src="images/Icon_work.png" alt="logo"></a>
         <nav class="menu">
-          <a href="#issues">課題</a>
-          <a href="#services">提供内容</a>
+          <a href="#problems">課題</a>
+          <a href="#services">解決方法</a>
+          <a href="#value">価値</a>
           <a href="#career">経歴</a>
-          <a href="#strength">強み</a>
           <a href="#contact">問い合わせ</a>
         </nav>
       </div>
@@ -714,16 +680,16 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-text">
-          <div class="eyebrow">AI Enablement / IT Consulting / Software Development</div>
-          <h1>業務理解と技術実装で、現場で機能する改善をつくる。</h1>
+          <div class="eyebrow">IT Consulting / Development / AI Enablement</div>
+          <h1>技術と業務の間にある課題を、現場で機能する改善までつなぐ。</h1>
           <p class="lead">
-            組み込み・車載・業務システム開発から、ITコンサルティング、運用改善、生成AI活用推進まで。
-            技術だけでも、業務理解だけでも終わらせず、課題整理から提案、実装、運用まで一貫して支援します。
+            開発、運用、顧客折衝、プロセス改善、生成AI活用推進までの経験を基に、
+            システム開発だけで終わらない、実務に根づくIT改善を支援します。
           </p>
 
           <div class="hero-cta">
             <a class="button primary" href="#contact">相談する</a>
-            <a class="button secondary" href="#career">経歴を見る</a>
+            <a class="button secondary" href="#problems">課題を見る</a>
           </div>
 
           <div class="hero-meta">
@@ -732,12 +698,12 @@
               <div class="meta-value">IT業界 約6年半</div>
             </div>
             <div class="meta-item">
-              <div class="meta-label">Background</div>
-              <div class="meta-value">開発 / 顧客折衝 / PL / PMO補佐 / AI活用推進</div>
+              <div class="meta-label">Coverage</div>
+              <div class="meta-value">開発 / 顧客折衝 / PL / 改善推進 / AI活用</div>
             </div>
             <div class="meta-item">
               <div class="meta-label">Focus</div>
-              <div class="meta-value">業務改善・プロセス改善・AI活用・技術支援</div>
+              <div class="meta-value">業務改善・開発プロセス改善・AI活用支援</div>
             </div>
           </div>
         </div>
@@ -748,96 +714,41 @@
       </div>
     </section>
 
-    <section id="issues">
+    <section id="problems">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="section-kicker">Issues</div>
+          <div class="section-kicker">Problems</div>
           <div>
-            <h2 class="section-title">こういう課題ありませんか？</h2>
+            <h2 class="section-title">こういう課題はありませんか？</h2>
             <p class="section-desc">
-              技術課題そのものだけでなく、開発・運用・業務の間にある「詰まり」を整理し、現場で機能する形まで落とし込みます。
+              技術課題そのものだけでなく、現場で改善が前に進まない原因は、開発・業務・運用の間にあることが少なくありません。
             </p>
           </div>
         </div>
 
-        <div class="issues-grid">
-          <div class="issues-card reveal stagger-1">
-            <div class="small">Issue 01</div>
-            <h3>開発と業務の認識が噛み合わない</h3>
-            <p>
-              要望はあるのに仕様が曖昧、顧客と開発側の解釈がずれて手戻りが多い。
-              顧客折衝と実装の両方を経験している立場から、認識を接続します。
-            </p>
+        <div class="grid-4">
+          <div class="compact-card reveal stagger-1">
+            <div class="small-label">Problem 01</div>
+            <h3>認識が揃わない</h3>
+            <p>顧客要望と開発側の理解がずれ、仕様や成果物に手戻りが出る。</p>
           </div>
 
-          <div class="issues-card reveal stagger-2">
-            <div class="small">Issue 02</div>
-            <h3>開発プロセスや運用が整っていない</h3>
-            <p>
-              進捗管理、成果物、レビュー、情報共有が属人的で、生産性が上がらない。
-              Jira / Confluence / Slack なども含め、実務に効く形で整備します。
-            </p>
+          <div class="compact-card reveal stagger-2">
+            <div class="small-label">Problem 02</div>
+            <h3>改善が実装まで進まない</h3>
+            <p>課題は見えているが、技術面と業務面の橋渡しができず止まってしまう。</p>
           </div>
 
-          <div class="issues-card reveal stagger-3">
-            <div class="small">Issue 03</div>
-            <h3>AIを導入したいが業務に落ちない</h3>
-            <p>
-              生成AIを試しても、現場運用やドキュメント整備、設計補助まで繋がらない。
-              活用テーマの整理から導入・定着まで支援します。
-            </p>
+          <div class="compact-card reveal stagger-3">
+            <div class="small-label">Problem 03</div>
+            <h3>AIが定着しない</h3>
+            <p>生成AIを試しているが、現場の業務フローや設計書運用に落ちていない。</p>
           </div>
 
-          <div class="issues-card reveal stagger-4">
-            <div class="small">Issue 04</div>
-            <h3>既存システムやログ運用を改善したい</h3>
-            <p>
-              ログ基盤、監視、ダッシュボード、データ抽出が現場で使い切れていない。
-              Datadog / Splunk / Python などの知見も活かして改善します。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="proof">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker">Proof</div>
-          <div>
-            <h2 class="section-title">信頼の根拠</h2>
-            <p class="section-desc">
-              5年半にわたる開発現場での実装・顧客折衝・リーダー経験に加え、現職ではプロセス改善とAI活用推進まで担当しています。
-            </p>
-          </div>
-        </div>
-
-        <div class="proof-grid">
-          <div class="proof-card reveal stagger-1">
-            <div class="proof-label">2019 — 2022</div>
-            <h3>組み込み・車載・ネットワーク・ストレージ開発</h3>
-            <p>
-              C / C++ / Python を中心に、組み込み・車載・通信・クラウド連携開発を経験。
-              AUTOSAR案件では要件定義から評価まで一貫して担当しました。
-            </p>
-          </div>
-
-          <div class="proof-card reveal stagger-2">
-            <div class="proof-label">2022 — 2026</div>
-            <h3>顧客折衝を伴う開発・導入・改善支援</h3>
-            <p>
-              売上分析システム導入支援、カーナビ開発、ログ管理基盤移行、マウンター開発などで、
-              顧客との調整から設計・実装・テストまで担当しました。
-            </p>
-          </div>
-
-          <div class="proof-card reveal stagger-3">
-            <div class="proof-label">2024 —</div>
-            <h3>PL / PMO補佐 / AI活用推進</h3>
-            <p>
-              5名チームを率いて開発プロセスの標準化・改善を推進。
-              Jira導入、Slack活用、PlantUMLやConfluenceを含むAI活用も主導しています。
-            </p>
+          <div class="compact-card reveal stagger-4">
+            <div class="small-label">Problem 04</div>
+            <h3>運用が属人化している</h3>
+            <p>ログ、監視、タスク管理、情報共有が整理されず、継続改善が難しい。</p>
           </div>
         </div>
       </div>
@@ -846,42 +757,73 @@
     <section id="services">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="section-kicker">Services</div>
+          <div class="section-kicker">Solution</div>
           <div>
-            <h2 class="section-title">提供内容</h2>
+            <h2 class="section-title">解決方法</h2>
             <p class="section-desc">
-              法人向けに、業務効率化、デジタル活用、技術支援を中心としたサービスを提供しています。
+              課題の整理から、改善案の設計、実装、運用定着までを一貫して支援します。単なる助言や開発要員ではなく、前に進める役割を担います。
             </p>
           </div>
         </div>
 
-        <div class="grid">
+        <div class="grid-3">
           <article class="card reveal stagger-1">
             <div class="card-index">01</div>
-            <h3>AI活用支援</h3>
+            <h3>IT技術コンサルティング</h3>
             <p>
-              生成AIの導入や活用テーマの整理に加え、設計書・仕様書・業務フローへの落とし込みまで支援します。
-              PoCで終わらせず、現場で使える形へ繋げます。
+              課題の背景を業務側と技術側の両面から整理し、実現可能な改善案として設計します。
             </p>
           </article>
 
           <article class="card reveal stagger-2">
             <div class="card-index">02</div>
-            <h3>IT技術コンサルティング</h3>
+            <h3>システム開発 / 改善実装</h3>
             <p>
-              業務課題の把握から改善提案、技術提案、プロセス整理まで一貫して支援します。
-              技術的実現性と現場運用の両面から、実行可能な設計に落とし込みます。
+              設計だけで終わらせず、既存資産や現場運用を踏まえた形で実装・調整まで行います。
             </p>
           </article>
 
           <article class="card reveal stagger-3">
             <div class="card-index">03</div>
-            <h3>業務効率化ツール / アプリ開発</h3>
+            <h3>生成AI活用支援</h3>
             <p>
-              業務の再現性と効率を高めるためのツール・アプリケーションを、現場運用を前提に開発します。
-              既存資産や運用フローを踏まえた改善も対応可能です。
+              活用テーマの整理から、ドキュメント整備・業務フロー・設計補助への落とし込みまで支援します。
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="value">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-kicker">Value</div>
+          <div>
+            <h2 class="section-title">なぜ私が対応できるのか</h2>
+            <p class="section-desc">
+              私の強みは、開発現場の実装経験だけでなく、顧客折衝、要件整理、リーダー経験、プロセス改善まで横断していることです。
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="timeline-summary reveal stagger-1">
+            <div class="small-label">Value 01</div>
+            <h3>実装で終わらない</h3>
+            <p>組み込み・車載・業務システム・ログ基盤など、現場に近い領域で要件から評価まで一貫して経験しています。</p>
+          </div>
+
+          <div class="timeline-summary reveal stagger-2">
+            <div class="small-label">Value 02</div>
+            <h3>技術と業務をつなげる</h3>
+            <p>顧客折衝、仕様策定、PL / PMO補佐を通じ、業務側の意図を開発に落とし込む役割を担ってきました。</p>
+          </div>
+
+          <div class="timeline-summary reveal stagger-3">
+            <div class="small-label">Value 03</div>
+            <h3>改善を前に進める</h3>
+            <p>Jira導入、Slack活用、Confluence移行、生成AI活用推進など、プロセスと運用の改善を実務で進めてきました。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -893,7 +835,7 @@
           <div>
             <h2 class="section-title">仕事の進め方</h2>
             <p class="section-desc">
-              相談を受けた後は、技術だけでなく業務の背景まで理解した上で、改善が現場で機能する形になるまで支援します。
+              表面的な要望に対して作業を受けるのではなく、背景と運用を理解した上で、改善が現場で機能するところまで支援します。
             </p>
           </div>
         </div>
@@ -901,26 +843,26 @@
         <div class="approach-grid">
           <div class="approach-card reveal stagger-1">
             <div class="approach-step">Step 01</div>
-            <h3>課題を理解する</h3>
-            <p>現状の業務プロセスや背景を整理し、表面的な要望ではなく本質的な課題を把握します。</p>
+            <h3>課題を整理する</h3>
+            <p>業務背景・関係者・既存運用を整理し、問題の本質を言語化します。</p>
           </div>
 
           <div class="approach-card reveal stagger-2">
             <div class="approach-step">Step 02</div>
             <h3>改善案を設計する</h3>
-            <p>技術と業務の両面から、現実的かつ継続可能な改善案を設計します。</p>
+            <p>技術的実現性と現場運用の両方を踏まえ、実行可能な改善案に落とし込みます。</p>
           </div>
 
           <div class="approach-card reveal stagger-3">
             <div class="approach-step">Step 03</div>
-            <h3>実装する</h3>
-            <p>システム・運用・AI活用を含め、現場で機能する形で実装と調整を行います。</p>
+            <h3>実装・導入する</h3>
+            <p>必要に応じてシステム実装、運用整備、AI活用導入まで具体的に進めます。</p>
           </div>
 
           <div class="approach-card reveal stagger-4">
             <div class="approach-step">Step 04</div>
-            <h3>改善を継続する</h3>
-            <p>導入して終わりではなく、運用しながら改善を続けられる状態まで整えます。</p>
+            <h3>定着させる</h3>
+            <p>導入で終わらせず、継続運用と改善が回る状態まで整えます。</p>
           </div>
         </div>
       </div>
@@ -929,11 +871,11 @@
     <section id="career">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="section-kicker">Career</div>
+          <div class="section-kicker">Evidence</div>
           <div>
-            <h2 class="section-title">経歴</h2>
+            <h2 class="section-title">その裏付けとなる経歴</h2>
             <p class="section-desc">
-              組み込み・車載・ネットワーク・ストレージ開発から、業務システム導入支援、ログ基盤移行、ITコンサルティング、生成AI活用推進まで、技術と業務の両面を経験しています。
+              課題解決できると考える根拠は、開発現場・顧客対応・リーダー経験・改善推進の実務を積み重ねてきたことにあります。
             </p>
           </div>
         </div>
@@ -948,8 +890,8 @@
             <div class="timeline-body">
               <h3>COMPANY_TEST_1</h3>
               <p>
-                組み込み・車載開発を中心に、カーナビ、ECU制御、ネットワーク機器、ストレージのクラウド連携、AUTOSAR準拠の画像センサ開発まで幅広く担当。
-                実装・評価だけでなく、AUTOSAR案件では要件定義から評価まで一貫して担い、プロジェクトリーダーとしてタスク・進捗管理も経験しました。
+                組み込み・車載開発を中心に、カーナビ、ECU制御、ネットワーク機器、ストレージのクラウド連携、AUTOSAR準拠の画像センサ開発まで担当。
+                AUTOSAR案件では要件定義から評価まで一貫して担い、プロジェクトリーダーも経験しました。
               </p>
             </div>
           </div>
@@ -959,9 +901,9 @@
             <div class="timeline-body">
               <h3>COMPANY_TEST_2</h3>
               <p>
-                売上分析システム導入支援、カーナビ開発、DatadogからSplunkへのログ管理基盤移行、
+                売上分析システム導入支援、カーナビ開発、DatadogからSplunkへのログ基盤移行、
                 大手メーカー向けマウンター開発などに従事。
-                顧客折衝、仕様策定、設計、実装、テスト、導入支援まで幅広く担当し、現場解像度の高い支援を積み重ねました。
+                顧客折衝、仕様策定、設計、実装、テスト、導入支援まで一貫して担当しました。
               </p>
             </div>
           </div>
@@ -971,9 +913,8 @@
             <div class="timeline-body">
               <h3>PL / PMO補佐 / AI活用推進</h3>
               <p>
-                大手自動車メーカー向けアプリ開発にて、クライアントPMOを補佐するPLとして5名のチームを牽引。
-                開発プロセスの標準化・品質向上支援、Jira導入による進捗管理の移行、Slack活用による業務効率化、
-                PlantUMLやConfluence移行などAI活用による新規業務開拓を主導しました。
+                大手自動車メーカー向けアプリ開発にて、5名体制のPL / PMO補佐として開発プロセス標準化・品質向上を推進。
+                Jira導入、Slack活用、PlantUMLやConfluence移行など、生成AIを含む改善施策を主導しました。
               </p>
             </div>
           </div>
@@ -983,46 +924,9 @@
             <div class="timeline-body">
               <h3>個人事業主として開業</h3>
               <p>
-                顧客課題の解決により直接的に価値を提供するため独立。
-                開発現場で培った現場解像度の高さを武器に、実効性のあるITコンサルティングと改善支援を提供します。
+                開発現場で培った現場解像度の高さを基に、技術と業務の間にある課題を整理し、実効性のある改善支援を直接提供するため独立。
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="strength">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker">Strength</div>
-          <div>
-            <h2 class="section-title">強み / 事業の方向性</h2>
-            <p class="section-desc">
-              5年半以上にわたる開発現場の最前線で培った「現場解像度の高さ」を武器に、実効性のあるITコンサルティングと改善支援を提供できることが強みです。
-            </p>
-          </div>
-        </div>
-
-        <div class="list">
-          <div class="list-box reveal stagger-1">
-            <h3>強み</h3>
-            <ul class="plain-list">
-              <li>開発現場の実装経験を踏まえ、技術的実現性を伴った提案ができること</li>
-              <li>顧客折衝から設計・実装・テスト・導入まで一貫して関われること</li>
-              <li>Jira / Confluence / Slack / Splunk などを活用したプロセス改善ができること</li>
-              <li>生成AI活用を、業務フローやドキュメント運用に接続できること</li>
-            </ul>
-          </div>
-
-          <div class="list-box reveal stagger-2">
-            <h3>対象 / 方針</h3>
-            <ul class="plain-list">
-              <li>業務効率化、開発プロセス改善、AI活用を進めたい法人を主な対象としています</li>
-              <li>技術だけ、資料だけで終わらず、現場で機能する形まで支援します</li>
-              <li>単発の開発要員ではなく、改善を前に進める伴走者として価値を出します</li>
-              <li>継続支援と紹介を基盤に、信頼関係を重視して事業を拡大します</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -1039,10 +943,10 @@
 
         <div class="contact-box reveal stagger-1">
           <div class="contact-copy">
-            <strong>開発・業務改善・AI活用に関するご相談はこちらから。</strong>
+            <strong>課題の整理段階からでもご相談ください。</strong>
             <p>
-              IT改善、プロセス整備、生成AI活用、システム開発支援など、
-              ご相談内容・目的・現在の課題・想定時期を簡単に添えていただけるとスムーズです。
+              システム開発、業務改善、開発プロセス整備、生成AI活用など、
+              相談内容・目的・現在の状況・想定時期を簡単に添えていただけるとスムーズです。
             </p>
           </div>
           <a class="mail" href="mailto:test@test.com">test@test.com</a>
